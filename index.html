@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Fur Natural — меховая компания полного цикла. Производство шуб, головных уборов, оптовая и розничная торговля натуральным мехом. Элитные меховые изделия с доставкой." />
+  <title>Fur Natural — Элитные Меховые Изделия</title>
+  <link rel="icon" type="image/png" href="images/logo.png?v=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- CINEMATIC CANVAS BACKGROUND -->
+  <canvas id="gl-canvas"></canvas>
+  <!-- PARTICLE OVERLAY -->
+  <canvas id="particle-canvas"></canvas>
+  <!-- GRAIN OVERLAY -->
+  <div class="grain-overlay"></div>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" data-scroll="0">
+        <img src="images/logo.png" alt="Fur Natural Logo" class="logo-img" />
+        <span class="logo-text">FUR <span class="logo-accent">NATURAL</span></span>
+      </a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-scroll="1" class="nav-link">Услуги</a></li>
+        <li><a href="#" data-scroll="2" class="nav-link">Коллекции</a></li>
+        <li><a href="#" data-scroll="3" class="nav-link">Производство</a></li>
+        <li><a href="#" data-scroll="4" class="nav-link">О нас</a></li>
+        <li><a href="#" data-scroll="5" class="nav-link nav-cta">Связаться</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-scrim" id="nav-scrim" hidden></div>
+  <div class="nav-drawer" id="nav-drawer" hidden>
+    <button class="drawer-close" id="drawer-close" aria-label="Закрыть">✕</button>
+    <ul class="drawer-links" id="drawer-links">
+      <li><a href="#" data-scroll="1" class="drawer-link">Услуги</a></li>
+      <li><a href="#" data-scroll="2" class="drawer-link">Коллекции</a></li>
+      <li><a href="#" data-scroll="3" class="drawer-link">Производство</a></li>
+      <li><a href="#" data-scroll="4" class="drawer-link">О нас</a></li>
+      <li><a href="#" data-scroll="5" class="drawer-link">Связаться</a></li>
+    </ul>
+    <div class="drawer-contacts">
+      <a href="https://t.me/fur_natural" target="_blank" class="drawer-social">Telegram</a>
+      <a href="https://www.instagram.com/fur_natural" target="_blank" class="drawer-social">Instagram</a>
+    </div>
+  </div>
+
+  <!-- MAIN SCROLL CONTAINER -->
+  <div id="ui-layer">
+    <div class="stage">
+
+      <!-- SECTION 0: HERO -->
+      <section class="page" data-index="0" id="hero">
+        <div class="page-inner hero-inner">
+          <div class="hero-badge reveal-3d"><span>✦</span> Компания полного цикла <span>✦</span></div>
+          <h1 class="hero-title reveal-3d">
+            <span class="gradient-text">Fur Natural</span>
+          </h1>
+          <p class="hero-subtitle reveal-3d">Элитные меховые изделия ручной работы.<br>От сырья до готового изделия — с любовью к меху.</p>
+          <div class="hero-cta-group reveal-3d">
+            <a href="#" data-scroll="2" class="btn-primary">Смотреть коллекцию</a>
+            <a href="#" data-scroll="5" class="btn-outline">Получить консультацию</a>
+          </div>
+          <div class="hero-scroll-hint">
+            <div class="scroll-line"></div>
+            <span>прокрутите</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 1: SERVICES -->
+      <section class="page" data-index="1" id="services">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d"><span>✦</span> Что мы делаем</div>
+          <h2 class="section-title reveal-3d">Полный цикл<br><span class="gradient-text">мехового производства</span></h2>
+          <p class="section-desc reveal-3d">От закупки сырья до готового изделия — каждый этап под нашим контролем</p>
+          <div class="services-grid reveal-3d">
+            <div class="service-card">
+              <div class="service-icon">🦊</div>
+              <h3>Закупка сырья</h3>
+              <p>Отбор и закупка премиальных меховых шкур. Норка, лиса, соболь, каракуль и другие виды меха высшего сорта.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🎨</div>
+              <h3>Обработка и покраска</h3>
+              <p>Профессиональная выделка, окраска и обработка меха. Модные оттенки, натуральные цвета, стойкие красители.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">✂️</div>
+              <h3>Моделирование</h3>
+              <p>Разработка авторских лекал и моделей. Индивидуальный пошив под заказ по вашим параметрам и пожеланиям.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">👒</div>
+              <h3>Меховые головные уборы</h3>
+              <p>Эксклюзивные шапки, береты, ушанки и шляпы. Норковые, лисьи, ондатровые — любой фасон и размер.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">🏪</div>
+              <h3>Опт и розница</h3>
+              <p>Оптовые поставки для магазинов и бутиков. Розничная торговля элитными меховыми изделиями.</p>
+            </div>
+            <div class="service-card">
+              <div class="service-icon">💎</div>
+              <h3>Элитные шубные наборы</h3>
+              <p>Комплекты из шубы, шапки и аксессуаров. Идеальный подарок или полноценный образ для особого случая.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2: COLLECTIONS -->
+      <section class="page" data-index="2" id="collections">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d"><span>✦</span> Наши изделия</div>
+          <h2 class="section-title reveal-3d">Коллекция<br><span class="gradient-text">Premium 2025</span></h2>
+          <p class="section-desc reveal-3d">Каждое изделие — произведение искусства. Выберите свой стиль.</p>
+          <div class="collections-grid reveal-3d">
+            <div class="collection-card card-large">
+              <img src="images/hero-coat.png" alt="Норковая шуба" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Норка · Соболь</span>
+                <h3>Классические шубы</h3>
+                <p>Длинные и короткие модели из отборной норки и соболя</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/hats.png" alt="Меховые шапки" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Коллекция шапок</span>
+                <h3>Головные уборы</h3>
+                <p>Более 50 моделей из разных видов меха</p>
+              </div>
+            </div>
+            <div class="collection-card card-medium">
+              <img src="images/texture.png" alt="Фактура меха" class="collection-img" />
+              <div class="collection-overlay">
+                <span class="collection-label">Натуральный мех</span>
+                <h3>Качество меха</h3>
+                <p>Отборное сырьё высшего класса</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: PRODUCTION -->
+      <section class="page" data-index="3" id="production">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d"><span>✦</span> Наше производство</div>
+          <h2 class="section-title reveal-3d">Атeлье<br><span class="gradient-text">Fur Natural</span></h2>
+          <p class="section-desc reveal-3d">Собственное производство — гарантия качества на каждом этапе</p>
+          <div class="production-layout reveal-3d">
+            <div class="production-image-wrap">
+              <img src="images/workshop.png" alt="Наше производство" class="production-img" />
+            </div>
+            <div class="production-stats">
+              <div class="stat-card">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">лет на рынке меха</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">изделий в год</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">натуральный мех</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">видов моделей</span>
+              </div>
+              <div class="production-steps">
+                <div class="prod-step"><span class="step-num">01</span><span class="step-text">Закупка сырья у проверенных поставщиков</span></div>
+                <div class="prod-step"><span class="step-num">02</span><span class="step-text">Выделка и обработка меха</span></div>
+                <div class="prod-step"><span class="step-num">03</span><span class="step-text">Разработка лекал и моделирование</span></div>
+                <div class="prod-step"><span class="step-num">04</span><span class="step-text">Пошив изделия мастерами</span></div>
+                <div class="prod-step"><span class="step-num">05</span><span class="step-text">Контроль качества и упаковка</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: ABOUT -->
+      <section class="page" data-index="4" id="about">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d"><span>✦</span> О компании</div>
+          <h2 class="section-title reveal-3d">Почему выбирают<br><span class="gradient-text">Fur Natural</span></h2>
+          <p class="section-desc reveal-3d">Меховая компания с многолетней историей и репутацией</p>
+          <div class="about-grid reveal-3d">
+            <div class="about-card">
+              <div class="about-icon">🌿</div>
+              <h3>Компания полного цикла</h3>
+              <p>Мы контролируем весь процесс — от закупки сырья до готового изделия. Никаких посредников, прямое качество.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🤝</div>
+              <h3>Опт и розница</h3>
+              <p>Работаем как с розничными покупателями, так и с оптовыми клиентами — магазинами и бутиками по всей России.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">👑</div>
+              <h3>Элитное качество</h3>
+              <p>Используем только первосортное сырьё. Каждая шуба — это инвестиция в стиль и тепло на долгие годы.</p>
+            </div>
+            <div class="about-card">
+              <div class="about-icon">🎯</div>
+              <h3>Индивидуальный подход</h3>
+              <p>Пошив по вашим меркам и эскизам. Реализуем любые дизайнерские решения и нестандартные размеры.</p>
+            </div>
+          </div>
+          <div class="about-cta reveal-3d">
+            <a href="https://t.me/fur_natural" target="_blank" class="btn-primary">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-1.97 9.289c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L7.16 14.26l-2.962-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.658.326z"/></svg>
+              Написать в Telegram
+            </a>
+            <a href="https://www.instagram.com/fur_natural" target="_blank" class="btn-outline">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: CONTACT -->
+      <section class="page" data-index="5" id="contact">
+        <div class="page-inner">
+          <div class="section-badge reveal-3d"><span>✦</span> Свяжитесь с нами</div>
+          <h2 class="section-title reveal-3d">Получите<br><span class="gradient-text">консультацию</span></h2>
+          <p class="section-desc reveal-3d">Оставьте заявку — мы подберём изделие под ваши пожелания и бюджет</p>
+          <div class="contact-layout reveal-3d">
+            <div class="contact-form-wrap">
+              <form class="contact-form" id="contact-form">
+                <div class="form-group">
+                  <label for="name">Ваше имя</label>
+                  <input type="text" id="name" name="name" placeholder="Как к вам обращаться?" required />
+                </div>
+                <div class="form-group">
+                  <label for="phone">Телефон или Telegram</label>
+                  <input type="text" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                </div>
+                <div class="form-group">
+                  <label for="interest">Что вас интересует?</label>
+                  <select id="interest" name="interest">
+                    <option value="">Выберите категорию</option>
+                    <option>Норковая шуба</option>
+                    <option>Лисья шуба</option>
+                    <option>Шуба из соболя</option>
+                    <option>Меховые головные уборы</option>
+                    <option>Элитный шубный набор</option>
+                    <option>Оптовая закупка</option>
+                    <option>Индивидуальный пошив</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Пожелания</label>
+                  <textarea id="message" name="message" rows="3" placeholder="Цвет, размер, бюджет, особые пожелания..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary form-submit">
+                  Отправить заявку
+                  <span class="btn-arrow">→</span>
+                </button>
+              </form>
+            </div>
+            <div class="contact-info-wrap">
+              <div class="contact-info-card">
+                <h3>Контакты</h3>
+                <div class="contact-item">
+                  <span class="contact-icon">📱</span>
+                  <div>
+                    <strong>Telegram</strong>
+                    <a href="https://t.me/fur_natural" target="_blank">@fur_natural</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">📸</span>
+                  <div>
+                    <strong>Instagram</strong>
+                    <a href="https://www.instagram.com/fur_natural" target="_blank">@fur_natural</a>
+                  </div>
+                </div>
+                <div class="contact-item">
+                  <span class="contact-icon">⏰</span>
+                  <div>
+                    <strong>Режим работы</strong>
+                    <span>Пн–Сб: 9:00 – 20:00</span>
+                  </div>
+                </div>
+              </div>
+              <div class="contact-promise-card">
+                <div class="promise-icon">✦</div>
+                <h4>Наше обещание</h4>
+                <p>Ответим в течение 30 минут. Подберём идеальное изделие по вашим параметрам и бюджету.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- FOOTER -->
+        <footer class="footer">
+          <div class="footer-inner">
+            <span class="footer-logo">FUR NATURAL</span>
+            <span class="footer-copy">© 2025 Fur Natural. Меховая компания полного цикла.</span>
+            <div class="footer-socials">
+              <a href="https://t.me/fur_natural" target="_blank">TG</a>
+              <a href="https://www.instagram.com/fur_natural" target="_blank">IG</a>
+            </div>
+          </div>
+        </footer>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
