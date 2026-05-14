@@ -33,6 +33,7 @@ let isReady = false;
 let currentFrame = 0;
 let targetFrame = 0;
 
+
 // ---- Loader overlay ----
 const loaderEl = document.createElement('div');
 loaderEl.id = 'loader';
@@ -48,9 +49,10 @@ const loaderStyle = document.createElement('style');
 loaderStyle.textContent = `
   #loader {
     position: fixed; inset: 0; z-index: 9999;
-    background: #06040a;
+    background: rgba(6,4,10,0.92);
     display: flex; align-items: center; justify-content: center;
     transition: opacity 0.8s ease;
+    backdrop-filter: blur(8px);
   }
   #loader.fade-out { opacity: 0; pointer-events: none; }
   .loader-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
@@ -86,9 +88,13 @@ async function loadFrame(idx) {
     img.onload = () => {
       frames[idx] = img;
       loadedCount++;
+      // Start rendering as soon as first frame arrives
+      if (loadedCount === 1) { isReady = true; drawFrame(0); }
       const pct = Math.round((loadedCount / TOTAL_FRAMES) * 100);
-      document.getElementById('loader-bar').style.width = pct + '%';
-      document.getElementById('loader-pct').textContent = pct + '%';
+      const bar = document.getElementById('loader-bar');
+      const pctEl = document.getElementById('loader-pct');
+      if (bar) bar.style.width = pct + '%';
+      if (pctEl) pctEl.textContent = pct + '%';
       resolve();
     };
     img.onerror = () => { frames[idx] = null; loadedCount++; resolve(); };
@@ -110,9 +116,10 @@ async function loadAllFrames() {
 loadAllFrames().then(() => {
   isReady = true;
   const loader = document.getElementById('loader');
-  loader.classList.add('fade-out');
-  setTimeout(() => loader.remove(), 900);
-  pages[0].classList.add('is-active');
+  if (loader) {
+    loader.classList.add('fade-out');
+    setTimeout(() => loader.remove(), 900);
+  }
 });
 
 // ---- Draw frame (cover-fit) ----
@@ -189,6 +196,9 @@ animate();
 const pages = Array.from(document.querySelectorAll('.page'));
 const navLinks = document.querySelectorAll('#nav-links .nav-link:not(.nav-cta)');
 const drawerLinks = document.querySelectorAll('#drawer-links .drawer-link');
+
+// Show hero immediately (don't wait for frame loading)
+pages[0].classList.add('is-active');
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
